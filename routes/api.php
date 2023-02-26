@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //las rutas de las api
 Route::group(['prefix' => 'egresos'], function() {
-    Route::get('/', [EgresoController::class, 'index'])->name('egresos.index');
+    Route::any('/', [EgresoController::class, 'index'])->name('egresos.index');
     Route::post('/crear', [EgresoController::class, 'store'])->name('egresos.store');
     Route::get('/editar/{id}', [EgresoController::class, 'editarEgreso'])->name('editar_egreso');
     Route::get('/borrar/{id}', [EgresoController::class, 'borrarEgreso'])->name('borrar_egreso');
