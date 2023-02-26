@@ -1,5 +1,8 @@
 <?php
+//importar los controladores
 
+use App\Http\Controllers\EgresoController;
+use App\Http\Controllers\IngresoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +20,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//las rutas de las api
+Route::group(['prefix' => 'egresos'], function() {
+    Route::get('/', [EgresoController::class, 'index'])->name('egresos.index');
+    Route::post('/crear', [EgresoController::class, 'store'])->name('egresos.store');
+    Route::get('/editar/{id}', [EgresoController::class, 'editarEgreso'])->name('editar_egreso');
+    Route::get('/borrar/{id}', [EgresoController::class, 'borrarEgreso'])->name('borrar_egreso');
+});
+
+
