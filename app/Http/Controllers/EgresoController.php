@@ -47,12 +47,12 @@ class EgresoController extends Controller
         //datos en la base de datos, por último retorna a la vista del listado de alumnos.
         $retorno = json_decode($request->getContent());
 
-        $ingreso = new Egreso();
-        $ingreso->fill((array)$retorno);
-        $ingreso->descripcion = $retorno->descripcion;
-        $ingreso->valor = $retorno->valor;
+        $egreso = new Egreso();
+        $egreso->fill((array)$retorno);
+        $egreso->descripcion = $retorno->descripcion;
+        $egreso->valor = $retorno->valor;
 
-        $ingreso->save();
+        $egreso->save();
         $retorno->recibido = "OK";
         return response()->json($retorno);
     }
@@ -76,7 +76,7 @@ class EgresoController extends Controller
     /**
      * Update the specified resource in storage.
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ingreso  $ingreso
+     * @param  \App\Models\Egreso  $egreso
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Egreso $egreso)
@@ -93,7 +93,7 @@ class EgresoController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param  \App\Models\Ingreso  $ingreso
+     * @param  \App\Models\Ingreso  $egreso
      * @return \Illuminate\Http\Response
      */
     public function destroy(Egreso $egreso)

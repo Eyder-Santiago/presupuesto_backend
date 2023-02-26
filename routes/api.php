@@ -29,4 +29,12 @@ Route::group(['prefix' => 'egresos'], function() {
     Route::delete('/eliminar/{egreso}', [EgresoController::class, 'destroy'])->name('egresos.destroy');
 });
 
+Route::group(['prefix' => 'ingresos'], function() {
+    Route::any('/', [IngresoController::class, 'index'])->name('ingresos.index');
+    Route::post('/crear', [IngresoController::class, 'store'])->name('ingresos.store');
+    Route::put('/editar/{ingreso}', [IngresoController::class, 'update'])->name('ingresos.update');
+    Route::delete('/eliminar/{ingreso}', [IngresoController::class, 'destroy'])->name('ingresos.destroy');
+});
+
+
 
