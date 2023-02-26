@@ -88,6 +88,7 @@ class EgresoController extends Controller
 
         $egreso->save();
         $egreso->recibido = "OK";
+        return response()->json($retorno);
     }
 
     /**

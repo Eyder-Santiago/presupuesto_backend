@@ -25,8 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'egresos'], function() {
     Route::any('/', [EgresoController::class, 'index'])->name('egresos.index');
     Route::post('/crear', [EgresoController::class, 'store'])->name('egresos.store');
-    Route::get('/editar/{id}', [EgresoController::class, 'editarEgreso'])->name('editar_egreso');
-    Route::get('/borrar/{id}', [EgresoController::class, 'borrarEgreso'])->name('borrar_egreso');
+    Route::put('/editar/{egreso}', [EgresoController::class, 'update'])->name('egresos.update');
+    Route::delete('/eliminar/{egreso}', [EgresoController::class, 'destroy'])->name('egresos.destroy');
 });
 
 
