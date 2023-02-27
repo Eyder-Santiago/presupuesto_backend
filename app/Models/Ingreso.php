@@ -9,7 +9,7 @@ class Ingreso extends Model
 {
     use HasFactory;
 
-    protected $table = "egreso";
+    protected $table = "ingreso";
 
     /**
      * The attributes that are mass assignable.
