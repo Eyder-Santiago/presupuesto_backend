@@ -14,12 +14,12 @@ class IngresoController extends Controller
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //El método index es el inicio de las rutas, es donde mostraremos el listado de todos los ingresos.
         $query = Ingreso::query();
         if ($request->has('param')) {
-            $query->where('descripcion', 'like', "%" . $request->get("param") . "%");
+            $query->where('nombre', 'like', "%" . $request->get("param") . "%");
         }
 
         return $query->get()->toJson();
